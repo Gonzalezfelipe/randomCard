@@ -1,19 +1,41 @@
+// Definición de variables
+
 let numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"];
-let simbols = ["♦", "♥", "♠", "♣"];
+let symbols = ["♦", "♥", "♠", "♣"];
+
+// Función que genera una carta aleatoria
 
 function randomCard() {
-  let singleNumbers = numbers[Math.floor(Math.random() * numbers.length)];
-  let singleSimbols = simbols[Math.floor(Math.random() * simbols.length)];
-  let simbolsNumbersRandom = `${singleNumbers} ${singleSimbols}`;
+  // Selecciona número y símbolo aleatorio
 
-  let cards = document.getElementsByClassName("card");
+  let number = numbers[Math.floor(Math.random() * numbers.length)];
+  let symbol = symbols[Math.floor(Math.random() * symbols.length)];
 
-  // Recorrer la lista de elementos y establecer el contenido de cada uno
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].innerHTML = simbolsNumbersRandom;
+  // Selecciona los Elementos del DOM
+
+  let cardElement = document.querySelector(".card");
+  let symbolElement = document.querySelector(".symbol1");
+  let numberElement = document.querySelector(".number");
+  let symbol2Element = document.querySelector(".symbol2");
+
+  // Se actualizan los valores con los valores aleatorios
+
+  symbolElement.textContent = symbol;
+  numberElement.textContent = number;
+  symbol2Element.textContent = symbol;
+
+  // Verificación si el simbolo es rojo, en donde se añade o quita la clase red
+
+  if (symbol === "♥" || symbol === "♦") {
+    cardElement.classList.add("red");
+  } else {
+    cardElement.classList.remove("red");
   }
 }
 
-// window.onload = function() {
-//   randomCard();
-// };
+// Selecciona el elemento button para escuchar el evento click y gatillar la funcion randomCard
+
+let buttonElement = document.querySelector(".btn");
+buttonElement.addEventListener("click", function() {
+  randomCard();
+});

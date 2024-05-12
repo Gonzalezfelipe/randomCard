@@ -5,12 +5,11 @@ body {
   box-sizing: border-box;
 }
 
-.container {
+.container-card {
   display: flex;
   justify-content: center;
   height: 80vh;
   align-items: center;
-
 }
 
 .container-button {
@@ -27,8 +26,6 @@ body {
   font-family: "Bungee Spice", sans-serif;
   font-weight: 400;
   font-style: normal;
-
-  
 }
 
 .btn:active {
@@ -41,10 +38,27 @@ body {
   height: 600px;
   border-radius: 10px;
   border: 10px solid black;
-
+  display: flex;
+  justify-content: space-between;
 }
 
+.symbol1 {
+  font-size: 150px;
+}
 
+.symbol2 {
+  font-size: 150px;
+  align-content: end;
+}
+
+.number {
+  font-size: 150px;
+  align-content: center;
+}
+
+.red {
+  color: red;
+}
 
 .diamond,
 .heart {
